@@ -1,0 +1,30 @@
+# Xcode (project file is generated from project.yml via XcodeGen)
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+.build/
+
+# Swift Package Manager
+.swiftpm/
+Package.resolved
+
+# CocoaPods / Carthage (not used, but ignore by default)
+Pods/
+Carthage/Build/
+
+# macOS
+.DS_Store
+
+# Fonts (downloaded separately, see README)
+Spora/Resources/Fonts/
+
+# Local Claude Code settings
+.claude/
+
+# IDE
+.idea/
+.vscode/
+*.swp

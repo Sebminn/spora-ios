@@ -1,0 +1,34 @@
+name: Spora
+options:
+  bundleIdPrefix: app.spora
+  deploymentTarget:
+    iOS: "17.0"
+  developmentLanguage: ru
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""
+    GENERATE_INFOPLIST_FILE: NO
+
+targets:
+  Spora:
+    type: application
+    platform: iOS
+    sources:
+      - path: Spora
+    resources:
+      - path: Spora/Resources/catalog.json
+    info:
+      path: Spora/Resources/Info.plist
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.spora.Spora
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_FILE: Spora/Resources/Info.plist
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
