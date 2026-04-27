@@ -3,12 +3,32 @@ import SwiftData
 
 struct ScheduleEditorView: View {
     let supplement: Supplement
+    let existing: UserSchedule?
 
     @Environment(\.modelContext) private var context
     @Environment(\.dismiss) private var dismiss
 
-    @State private var times: [Date] = [defaultMorning()]
-    @State private var weekdays: Set<Int> = Set(1...7)
+    @State private var times: [Date]
+    @State private var weekdays: Set<Int>
+
+    init(supplement: Supplement, existing: UserSchedule? = nil) {
+        self.supplement = supplement
+        self.existing = existing
+        let calendar = Calendar.current
+        if let existing {
+            let dates = existing.times.compactMap { components -> Date? in
+                calendar.date(bySettingHour: components.hour ?? 0,
+                              minute: components.minute ?? 0,
+                              second: 0,
+                              of: .now)
+            }
+            _times = State(initialValue: dates.isEmpty ? [Self.defaultMorning()] : dates)
+            _weekdays = State(initialValue: Set(existing.weekdays))
+        } else {
+            _times = State(initialValue: [Self.defaultMorning()])
+            _weekdays = State(initialValue: Set(1...7))
+        }
+    }
 
     var body: some View {
         NavigationStack {
@@ -43,13 +63,20 @@ struct ScheduleEditorView: View {
     private func save() {
         let calendar = Calendar.current
         let components = times.map { calendar.dateComponents([.hour, .minute], from: $0) }
+        let sortedWeekdays = Array(weekdays).sorted()
         let service = ScheduleService(context: context)
         Task {
-            try? await service.add(
-                supplementId: supplement.id,
-                times: components,
-                weekdays: Array(weekdays).sorted()
-            )
+            if let existing {
+                existing.times = components
+                existing.weekdays = sortedWeekdays
+                try? await service.update(existing)
+            } else {
+                try? await service.add(
+                    supplementId: supplement.id,
+                    times: components,
+                    weekdays: sortedWeekdays
+                )
+            }
             dismiss()
         }
     }
