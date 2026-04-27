@@ -7,8 +7,8 @@ struct OnboardingView: View {
 
     private let pages: [OnboardingPage] = [
         .init(icon: "leaf.fill", title: "Spora", body: "Простое напоминание о приёме грибных БАДов."),
-        .init(icon: "bell.badge.fill", title: "Не пропустите приём", body: "Уведомления приходят в удобное вам время."),
-        .init(icon: "books.vertical.fill", title: "Знание под рукой", body: "Каталог БАДов с инструкциями и противопоказаниями.")
+        .init(icon: "bell.badge.fill", title: "Не пропустите\nприём", body: "Уведомления приходят в удобное вам время."),
+        .init(icon: "books.vertical.fill", title: "Знание\nпод рукой", body: "Каталог БАДов с инструкциями и противопоказаниями.")
     ]
 
     var body: some View {
@@ -64,6 +64,8 @@ private struct OnboardingPageView: View {
             Text(page.title)
                 .font(.Spora.brand)
                 .foregroundStyle(Color.Spora.textPrimary)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
             Text(page.body)
                 .font(.Spora.body)
                 .foregroundStyle(Color.Spora.textSecondary)
