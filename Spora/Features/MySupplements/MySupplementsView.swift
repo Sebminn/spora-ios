@@ -19,6 +19,8 @@ struct MySupplementsView: View {
             .background(Color.Spora.background.ignoresSafeArea())
             .navigationTitle("Мои БАДы")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.Spora.background, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button { showSettings = true } label: {

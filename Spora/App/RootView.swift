@@ -24,5 +24,7 @@ struct MainTabView: View {
             CatalogView()
                 .tabItem { Label("Каталог", systemImage: "books.vertical.fill") }
         }
+        .toolbarBackground(Color.Spora.background, for: .tabBar)
+        .toolbarBackground(.visible, for: .tabBar)
     }
 }

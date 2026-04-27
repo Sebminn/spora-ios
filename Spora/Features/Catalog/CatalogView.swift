@@ -20,6 +20,8 @@ struct CatalogView: View {
             .background(Color.Spora.background.ignoresSafeArea())
             .navigationTitle("Каталог")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(Color.Spora.background, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
             .navigationDestination(for: Supplement.self) { supplement in
                 SupplementDetailView(supplement: supplement)
             }
