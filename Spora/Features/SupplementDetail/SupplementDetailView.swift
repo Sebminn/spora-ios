@@ -22,7 +22,7 @@ struct SupplementDetailView: View {
         }
         .background(Color.Spora.background.ignoresSafeArea())
         .navigationTitle(supplement.nameRu)
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
         .safeAreaInset(edge: .bottom) {
             Button {
                 showEditor = true

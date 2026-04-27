@@ -19,6 +19,7 @@ struct CatalogView: View {
             }
             .background(Color.Spora.background.ignoresSafeArea())
             .navigationTitle("Каталог")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationDestination(for: Supplement.self) { supplement in
                 SupplementDetailView(supplement: supplement)
             }

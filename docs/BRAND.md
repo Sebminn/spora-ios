@@ -40,12 +40,12 @@
 
 | Роль          | Шрифт            | Размер / вес                                                   |
 |---------------|------------------|----------------------------------------------------------------|
-| Brand / Logo  | **Fraunces**     | 32pt SemiBold — только для названия «Spora» и онбординга       |
-| Title 1       | **Onest**        | 28pt Bold                                                      |
-| Title 2       | **Onest**        | 22pt Bold                                                      |
-| Title 3       | **Onest**        | 17pt SemiBold                                                  |
-| Body          | **SF Pro Text**  | 17pt Regular (системный)                                       |
-| Caption       | **SF Pro Text**  | 13pt Regular, Text Secondary                                   |
+| Brand / Logo  | **Fraunces**     | 28pt SemiBold — только для названия «Spora» и онбординга       |
+| Title 1       | **Onest**        | 22pt Bold                                                      |
+| Title 2       | **Onest**        | 18pt Bold                                                      |
+| Title 3       | **Onest**        | 15pt SemiBold                                                  |
+| Body          | **SF Pro Text**  | 15pt Regular (системный)                                       |
+| Caption       | **SF Pro Text**  | 12pt Regular, Text Secondary                                   |
 
 **Источники:**
 
@@ -56,13 +56,13 @@
 ## 3. Формы и пластика
 
 - **Радиусы скругления:**
-  - Карточки: `20pt`
+  - Карточки: `16pt`
   - Кнопки primary: полная пилюля (`height / 2`)
-  - Поля ввода: `16pt`
+  - Поля ввода: `12pt`
   - Чипы/теги: полная пилюля
 - **Тени:** мягкие, тёплые — `rgba(43,31,23,0.08)` (лёгкий коричневый подтон вместо чёрного).
-- **Spacing:** базовая сетка 8pt (8 / 16 / 24 / 32).
-- **Кнопки primary:** заливка Primary, мягкая тень, полная пилюля, высота 52pt, текст SF Pro 17pt SemiBold.
+- **Spacing:** базовая сетка (4 / 6 / 12 / 18 / 24).
+- **Кнопки primary:** заливка Primary, мягкая тень, полная пилюля, высота 52pt, текст SF Pro 15pt SemiBold.
 - **Анимации:** мягкие, `.spring(response: 0.4, dampingFraction: 0.8)` — без резких переходов.
 
 ## 4. Иконография

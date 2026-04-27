@@ -47,7 +47,7 @@ actor NotificationService {
         minute: Int
     ) -> UNNotificationRequest {
         let content = UNMutableNotificationContent()
-        content.title = "Время \(supplement.nameRu)"
+        content.title = "Время принимать \(supplement.nameRu)"
         content.body = supplement.intake.withFood ? "С едой" : "Натощак"
         content.sound = .default
         content.userInfo = ["supplementId": supplement.id]
