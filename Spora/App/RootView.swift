@@ -19,7 +19,7 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             MySupplementsView()
-                .tabItem { Label("Мои БАДы", image: "Mushroom") }
+                .tabItem { Label("Мои БАДы", systemImage: "leaf.fill") }
 
             CatalogView()
                 .tabItem { Label("Каталог", systemImage: "books.vertical.fill") }

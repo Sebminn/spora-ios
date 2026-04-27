@@ -38,10 +38,8 @@ private struct CatalogCard: View {
                 .fill(Color.Spora.secondary.opacity(0.2))
                 .frame(width: 64, height: 64)
                 .overlay(
-                    Image("Mushroom")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 32, height: 32)
+                    Image(systemName: "leaf.fill")
+                        .font(.system(size: 28))
                         .foregroundStyle(Color.Spora.secondary)
                 )
             VStack(alignment: .leading, spacing: Spacing.xs) {
