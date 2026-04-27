@@ -6,9 +6,9 @@ struct OnboardingView: View {
     @State private var page = 0
 
     private let pages: [OnboardingPage] = [
-        .init(icon: "leaf.fill", title: "Spora", body: "Простое напоминание о приёме грибных БАДов."),
-        .init(icon: "bell.badge.fill", title: "Не пропустите\nприём", body: "Уведомления приходят в удобное вам время."),
-        .init(icon: "books.vertical.fill", title: "Знание\nпод рукой", body: "Каталог БАДов с инструкциями и противопоказаниями.")
+        .init(icon: .custom("Mushroom"), title: "Spora", body: "Простое напоминание о приёме грибных БАДов."),
+        .init(icon: .system("bell.badge.fill"), title: "Не пропустите\nприём", body: "Уведомления приходят в удобное вам время."),
+        .init(icon: .system("books.vertical.fill"), title: "Знание\nпод рукой", body: "Каталог БАДов с инструкциями и противопоказаниями.")
     ]
 
     var body: some View {
@@ -48,7 +48,12 @@ struct OnboardingView: View {
 }
 
 private struct OnboardingPage {
-    let icon: String
+    enum Icon {
+        case system(String)
+        case custom(String)
+    }
+
+    let icon: Icon
     let title: String
     let body: String
 }
@@ -58,8 +63,7 @@ private struct OnboardingPageView: View {
 
     var body: some View {
         VStack(spacing: Spacing.l) {
-            Image(systemName: page.icon)
-                .font(.system(size: 80))
+            icon
                 .foregroundStyle(Color.Spora.accent)
             Text(page.title)
                 .font(.Spora.brand)
@@ -73,5 +77,19 @@ private struct OnboardingPageView: View {
                 .padding(.horizontal, Spacing.l)
         }
         .padding()
+    }
+
+    @ViewBuilder
+    private var icon: some View {
+        switch page.icon {
+        case .system(let name):
+            Image(systemName: name)
+                .font(.system(size: 80))
+        case .custom(let name):
+            Image(name)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 80, height: 80)
+        }
     }
 }

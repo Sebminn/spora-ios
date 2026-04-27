@@ -36,8 +36,10 @@ struct MySupplementsView: View {
 
     private var emptyState: some View {
         VStack(spacing: Spacing.m) {
-            Image(systemName: "leaf")
-                .font(.system(size: 56))
+            Image("Mushroom")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 56, height: 56)
                 .foregroundStyle(Color.Spora.secondary)
             Text("Пока ничего не добавлено")
                 .font(.Spora.title3)
@@ -78,7 +80,10 @@ private struct ScheduleRow: View {
                 .fill(Color.Spora.accent.opacity(0.2))
                 .frame(width: 44, height: 44)
                 .overlay(
-                    Image(systemName: "leaf.fill")
+                    Image("Mushroom")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 24, height: 24)
                         .foregroundStyle(Color.Spora.accent)
                 )
             VStack(alignment: .leading, spacing: Spacing.xs) {
